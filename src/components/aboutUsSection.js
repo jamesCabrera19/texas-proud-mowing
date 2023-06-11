@@ -13,28 +13,28 @@ const testimonials = [
     },
 ];
 
-const AboutUsSection = () => {
+const AboutUsSection = ({ backgroundColor }) => {
     return (
         <Container
             className="my-5"
             fluid
-            style={{ backgroundColor: "transparent" }}
+            style={{ padding: "3rem", backgroundColor }}
         >
             <Row xs={1} md={2}>
                 <Col>
                     <h2>About Us</h2>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Vestibulum ante ipsum primis in faucibus orci luctus et
-                        ultrices posuere cubilia Curae; Nullam malesuada
-                        facilisis velit, vel consequat mi consequat nec. Ut
-                        malesuada nisi nec lectus finibus, non rutrum felis
-                        pulvinar. Aliquam ullamcorper malesuada dui, at
-                        fermentum massa posuere sed. Curabitur maximus dolor ac
-                        tellus varius, in ullamcorper purus pulvinar. Integer
-                        efficitur semper urna, id lobortis odio eleifend sed.
-                        Nullam nec risus lacus. Integer malesuada lacinia
-                        elementum. Quisque vitae fringilla odio.
+                        As a dedicated and hardworking Texan, I take immense
+                        pride in providing exceptional lawn mowing services.
+                        With a deep-rooted appreciation for nature and a genuine
+                        love for dogs, I bring a unique passion to the field of
+                        lawn care. My commitment to maintaining lush, healthy
+                        lawns goes hand in hand with my devotion to creating
+                        beautiful outdoor spaces that both homeowners and their
+                        beloved four-legged companions can enjoy. With years of
+                        experience and a genuine enthusiasm for transforming
+                        landscapes, I am excited to bring my expertise and love
+                        for lawn care to every project I undertake.
                     </p>
                 </Col>
                 <Col>

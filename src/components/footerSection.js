@@ -18,10 +18,10 @@ const Footer = () => {
                     </Col>
                     <Col md={6} className="text-center text-md-end">
                         <p>
-                            &copy; {new Date().getFullYear()} Your Company. All
-                            rights reserved.
+                            &copy; {new Date().getFullYear()} Texas Proud Mowing
+                            Company. All rights reserved.
                         </p>
-                        <p>Website by Your Name</p>
+                        <p>James Cabrera</p>
                     </Col>
                 </Row>
             </Container>
