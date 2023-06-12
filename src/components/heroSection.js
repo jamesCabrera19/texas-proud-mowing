@@ -11,7 +11,7 @@ const Img = (
     />
 );
 
-export default function HeroSection() {
+export default function HeroSection({ onClick }) {
     return (
         <div>
             <div className="position-relative" fluid>
@@ -36,7 +36,11 @@ export default function HeroSection() {
                         We provide affordable top-quality lawn care solutions
                         for a greener and healthier lawn.
                     </p>
-                    <Button variant="light" className="btn-purple">
+                    <Button
+                        variant="light"
+                        className="btn-purple"
+                        onClick={onClick}
+                    >
                         Get Started
                     </Button>
                 </Container>

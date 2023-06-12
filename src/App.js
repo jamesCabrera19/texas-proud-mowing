@@ -1,7 +1,15 @@
+import React, { useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import NavBar from "./components/header";
+// Bootstrap
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import Button from "react-bootstrap/Button";
+
+import Tab from "react-bootstrap/Tab";
+import Tabs from "react-bootstrap/Tabs";
+// Components
 import HeroSection from "./components/heroSection";
-import ServicesSection from "./components/serviceSection";
 import AboutUsSection from "./components/aboutUsSection";
 import TeamSection from "./components/teamSection";
 import GallerySection from "./components/gallerySection";
@@ -18,25 +26,86 @@ function App() {
 
     // Section colors
     const heroSectionColor = null;
-    const servicesSectionColor = secondaryColor;
+    // const servicesSectionColor = secondaryColor;
     const pricingSectionColor = primaryColor;
     const aboutUsSectionColor = secondaryColor;
     const teamSectionColor = primaryColor;
     const gallerySectionColor = secondaryColor;
     const contactSectionColor = primaryColor;
 
+    // const servicesRef = useRef(null);
+    const pricingRef = useRef(null);
+    const aboutUsRef = useRef(null);
+    const contactRef = useRef(null);
+    const galleryRef = useRef(null);
+
+    const handleNavClick = (ref) => {
+        ref.current.scrollIntoView({ behavior: "smooth" });
+    };
+    const NavLink = ({ onClick, title }) => (
+        <div
+            style={{
+                color: primaryColor,
+                alignSelf: "center",
+                margin: "3px 10px 0 10px",
+                cursor: "pointer",
+            }}
+            onClick={onClick}
+        >
+            {title}
+        </div>
+    );
+
     return (
         <div style={{ backgroundColor: primaryColor }}>
             <header>
-                <NavBar />
+                <Navbar bg="dark" variant="dark">
+                    <Container>
+                        <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+                        <Nav className="me-auto">
+                            <NavLink
+                                onClick={() => handleNavClick(pricingRef)}
+                                title="Services"
+                            />
+                            <NavLink
+                                onClick={() => handleNavClick(aboutUsRef)}
+                                title="About Us"
+                            />
+                            <NavLink
+                                onClick={() => handleNavClick(contactRef)}
+                                title="Contact"
+                            />
+                            <NavLink
+                                onClick={() => handleNavClick(galleryRef)}
+                                title="Gallery"
+                            />
+                        </Nav>
+                    </Container>
+                </Navbar>
             </header>
-            <HeroSection backgroundColor={heroSectionColor} />
-            <ServicesSection backgroundColor={servicesSectionColor} />
-            <PricingSection backgroundColor={pricingSectionColor} />
-            <AboutUsSection backgroundColor={aboutUsSectionColor} />
-            <TeamSection backgroundColor={teamSectionColor} />
-            <GallerySection backgroundColor={gallerySectionColor} />
-            <ContactSection backgroundColor={contactSectionColor} />
+
+            <HeroSection
+                backgroundColor={heroSectionColor}
+                onClick={() => handleNavClick(pricingRef)}
+            />
+            {/* <ServicesSection backgroundColor={servicesSectionColor} /> */}
+            <section ref={pricingRef}>
+                <PricingSection backgroundColor={pricingSectionColor} />
+            </section>
+
+            <section ref={aboutUsRef}>
+                <AboutUsSection backgroundColor={aboutUsSectionColor} />
+            </section>
+
+            <section>
+                <TeamSection backgroundColor={teamSectionColor} />
+            </section>
+            <section ref={galleryRef}>
+                <GallerySection backgroundColor={gallerySectionColor} />
+            </section>
+            <section ref={contactRef}>
+                <ContactSection backgroundColor={contactSectionColor} />
+            </section>
 
             <Footer />
         </div>

@@ -1,48 +1,54 @@
-import React from "react";
+import { useState } from "react";
 import { Card, Button, Modal, Container, Row, Col } from "react-bootstrap";
+import { priceServices } from "../companyData";
 
-const PricingSection = () => {
-    const services = [
-        {
-            title: "Lawn Fertilization",
-            description: "Price is based on square footage",
-            priceDescription: "Price in this area is around X amount",
-            image: require("../imgs/lawn4.jpg"),
-            modalTitle: "Lawn Fertilization Pricing",
-            modalBody:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam tristique justo, vel tincidunt purus dignissim eu.",
-        },
-        {
-            title: "All Services",
-            description:
-                "Get all our services bundled together at a discounted price.",
-            price: "Contact us for pricing",
-            priceNote: "Save more by choosing our comprehensive package.",
-            image: require("../imgs/lawn.jpg"),
-        },
-        {
-            title: "Lawn Mowing",
-            description: "Frontyard: $25, Backyard: $25, Both: $45",
-            priceDescription: "Price includes full yard mowing",
-            image: require("../imgs/lawn.jpg"),
-            modalTitle: "Lawn Mowing Pricing",
-            modalBody:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam tristique justo, vel tincidunt purus dignissim eu.",
-        },
-        {
-            title: "Weed Control",
-            description: "Pricing varies. Contact us for details.",
-            priceDescription:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            image: require("../imgs/lawn4.jpg"),
-            modalTitle: "Weed Control Pricing",
-            modalBody:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam tristique justo, vel tincidunt purus dignissim eu.",
-        },
-    ];
+const ServicesCard = ({ data, onClick }) => {
+    return (
+        <Row xs={1} md={2} lg={3} className="g-4">
+            {data.map((service) => (
+                <Col key={service.title}>
+                    <Card>
+                        <Card.Img variant="top" src={service.image} />
+                        <Card.Body>
+                            <Card.Title>{service.title}</Card.Title>
+                            <Card.Text>{service.description}</Card.Text>
+                            <Card.Title className="text-center my-4">
+                                {service.price}
+                            </Card.Title>
+                            <Button
+                                className="center"
+                                variant="primary"
+                                onClick={() => onClick(service)}
+                            >
+                                Learn More
+                            </Button>
+                        </Card.Body>
+                    </Card>
+                </Col>
+            ))}
+        </Row>
+    );
+};
+const ModalComponent = ({ showModal, onClick, data }) => {
+    const { modalTitle, modalBody } = data;
+    return (
+        <Modal show={showModal} onHide={onClick} centered>
+            <Modal.Header closeButton>
+                <Modal.Title>{modalTitle}</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>{modalBody}</Modal.Body>
+            <Modal.Footer>
+                <Button variant="secondary" onClick={onClick}>
+                    Close
+                </Button>
+            </Modal.Footer>
+        </Modal>
+    );
+};
 
-    const [showModal, setShowModal] = React.useState(false);
-    const [modalData, setModalData] = React.useState({});
+const PricingSection = ({ backgroundColor }) => {
+    const [showModal, setShowModal] = useState(false);
+    const [modalData, setModalData] = useState({});
 
     const handleShowModal = (service) => {
         setModalData(service);
@@ -54,29 +60,17 @@ const PricingSection = () => {
     };
 
     return (
-        <section>
-            <Container>
-                <h2 className="text-center">Our Services</h2>
-                <Row xs={1} md={2} lg={3} className="g-3">
-                    {services.map((service, index) => (
-                        <Col key={index}>
-                            <Card>
-                                <Card.Img variant="top" src={service.image} />
-                                <Card.Body>
-                                    <Card.Title>{service.title}</Card.Title>
-                                    <Card.Text>{service.description}</Card.Text>
-                                    <Card.Text>{service.price}</Card.Text>
-                                    <Card.Text>{service.priceNote}</Card.Text>
-                                    <Button variant="primary">
-                                        Learn More
-                                    </Button>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                    ))}
-                </Row>
+        <div style={{ padding: "3rem", backgroundColor }}>
+            <Container className="my-5">
+                <h2 className="text-center mb-5">Our Services</h2>
+                <ServicesCard onClick={handleShowModal} data={priceServices} />
             </Container>
-        </section>
+            <ModalComponent
+                showModal={showModal}
+                onClick={handleCloseModal}
+                data={modalData}
+            />
+        </div>
     );
 };
 
