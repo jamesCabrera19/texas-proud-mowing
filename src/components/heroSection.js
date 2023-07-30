@@ -3,19 +3,19 @@ import { Container, Button } from "react-bootstrap";
 import React from "react";
 
 const imageSrc = require("../imgs/lawn3.jpg");
-const Img = (
-    <Image
-        src={require("../imgs/lawn.jpg")}
-        fluid
-        className="position-absolute top-1 start-0"
-    />
-);
+// const Img = (
+//     <Image
+//         src={require("../imgs/lawn.jpg")}
+//         fluid
+//         className="position-absolute top-1 start-0"
+//     />
+// );
 
 export default function HeroSection({ onClick }) {
     return (
         <div>
-            <div className="position-relative" fluid>
-                <Image src={imageSrc} fluid />
+            <div className="position-relative" fluid="true">
+                <Image src={imageSrc} fluid="true" />
                 <Container
                     className="text-center text-white display-4"
                     style={{
@@ -29,7 +29,7 @@ export default function HeroSection({ onClick }) {
                     <h1 className="display-4 mb-4">
                         Welcome to Butters Lawn Care
                     </h1>
-                    <h2 lassName="display-4 mb-4">
+                    <h2 className="display-4 mb-4">
                         Quality Service for Your Lawn
                     </h2>
                     <p className="lead mb-6">

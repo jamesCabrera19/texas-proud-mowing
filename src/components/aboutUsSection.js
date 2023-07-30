@@ -2,9 +2,8 @@ import { Container, Row, Col, Card } from "react-bootstrap";
 
 const testimonials = [
     {
-        name: "John Doe",
-        testimonial:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac purus eget purus mattis aliquet.",
+        name: "Butters",
+        testimonial: "Woof woof woof woof woof!",
     },
     {
         name: "Jane Smith",
@@ -24,17 +23,16 @@ const AboutUsSection = ({ backgroundColor }) => {
                 <Col>
                     <h2>About Us</h2>
                     <p>
-                        As a dedicated and hardworking Texan, I take immense
-                        pride in providing exceptional lawn mowing services.
-                        With a deep-rooted appreciation for nature and a genuine
-                        love for dogs, I bring a unique passion to the field of
-                        lawn care. My commitment to maintaining lush, healthy
-                        lawns goes hand in hand with my devotion to creating
-                        beautiful outdoor spaces that both homeowners and their
-                        beloved four-legged companions can enjoy. With years of
-                        experience and a genuine enthusiasm for transforming
-                        landscapes, I am excited to bring my expertise and love
-                        for lawn care to every project I undertake.
+                        With unwavering commitment and a strong work ethic, I
+                        take immense pride in providing exceptional lawn mowing
+                        services. I have a genuine love for nature and a special
+                        fondness for dogs, which fuels my passion for lawn care.
+                        I work tirelessly to nurture lush, vibrant lawns,
+                        creating beautiful outdoor spaces that homeowners and
+                        their beloved dogs can enjoy. With years of experience
+                        and a true enthusiasm for transforming landscapes, I
+                        eagerly take on every project, eager to share my
+                        expertise and love for lawn care.
                     </p>
                 </Col>
                 <Col>

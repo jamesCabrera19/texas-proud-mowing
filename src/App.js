@@ -59,9 +59,9 @@ function App() {
     return (
         <div style={{ backgroundColor: primaryColor }}>
             <header>
-                <Navbar bg="dark" variant="dark">
+                <Navbar bg="dark" variant="dark" fixed="top">
                     <Container>
-                        <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+                        <Navbar.Brand href="/">Butters Lawn Care</Navbar.Brand>
                         <Nav className="me-auto">
                             <NavLink
                                 onClick={() => handleNavClick(pricingRef)}
@@ -71,13 +71,14 @@ function App() {
                                 onClick={() => handleNavClick(aboutUsRef)}
                                 title="About Us"
                             />
-                            <NavLink
-                                onClick={() => handleNavClick(contactRef)}
-                                title="Contact"
-                            />
+
                             <NavLink
                                 onClick={() => handleNavClick(galleryRef)}
                                 title="Gallery"
+                            />
+                            <NavLink
+                                onClick={() => handleNavClick(contactRef)}
+                                title="Schedule Service"
                             />
                         </Nav>
                     </Container>
