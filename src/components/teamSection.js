@@ -7,14 +7,14 @@ const teamMembers = [
         role: "Founder",
         // expertise: "Business Development",
         bio: "woof woof",
-        photo: require("../imgs/butters.jpeg"),
+        photo: require("../imgs/owner.jpeg"),
     },
     {
         name: "James Cabrera",
         role: "Co-founder",
         expertise: "Digital Marketing",
         bio: "howdy!",
-        photo: require("../imgs/butters.jpeg"),
+        photo: require("../imgs/co-owner.jpeg"),
     },
 ];
 

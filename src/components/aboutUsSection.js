@@ -6,9 +6,8 @@ const testimonials = [
         testimonial: "Woof woof woof woof woof!",
     },
     {
-        name: "Jane Smith",
-        testimonial:
-            "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed non semper.",
+        name: "Wife",
+        testimonial: "They did an okay job mowing the yard",
     },
 ];
 

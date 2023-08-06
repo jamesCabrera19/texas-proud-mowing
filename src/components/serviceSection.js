@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { Container, Row, Col, Form, Button, Alert } from "react-bootstrap";
 
-function FormExample({ backgroundColor }) {
+function ServiceSection({ backgroundColor }) {
     const [validated, setValidated] = useState(false);
     const [submissionResult, setSubmissionResult] = useState(null);
 
@@ -32,6 +32,18 @@ function FormExample({ backgroundColor }) {
             setSubmissionResult("error");
             console.error("Form submission failed:", error);
         }
+    };
+
+    const FormGroup = ({ label, placeholder, errorLabel }) => {
+        return (
+            <Form.Group as={Col} md="6" controlId="validationCustom01">
+                <Form.Label>{label}</Form.Label>
+                <Form.Control required type="text" placeholder={placeholder} />
+                <Form.Control.Feedback type="invalid">
+                    {errorLabel}
+                </Form.Control.Feedback>
+            </Form.Group>
+        );
     };
 
     return (
@@ -104,12 +116,12 @@ function FormExample({ backgroundColor }) {
                             <Form.Control as="select" required>
                                 <option value="">Select Service Type</option>
                                 <option value="Lawn Mowing">Lawn Mowing</option>
-                                <option value="Weed Control">
+                                {/* <option value="Weed Control">
                                     Weed Control
                                 </option>
                                 <option value="Fertilization">
                                     Fertilization
-                                </option>
+                                </option> */}
                                 {/* Add more service options as needed */}
                             </Form.Control>
                             <Form.Control.Feedback type="invalid">
@@ -138,7 +150,7 @@ function FormExample({ backgroundColor }) {
                             as="textarea"
                             rows={4}
                             name="message"
-                            placeholder="Enter any additional notes or requests"
+                            placeholder="Knock before entering property..."
                         />
                     </Form.Group>
                     <Button type="submit">Submit form</Button>
@@ -148,4 +160,4 @@ function FormExample({ backgroundColor }) {
     );
 }
 
-export default FormExample;
+export default ServiceSection;

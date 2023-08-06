@@ -13,7 +13,7 @@ import HeroSection from "./components/heroSection";
 import AboutUsSection from "./components/aboutUsSection";
 import TeamSection from "./components/teamSection";
 import GallerySection from "./components/gallerySection";
-import ContactSection from "./components/contactSection";
+import ServiceSection from "./components/serviceSection";
 import PricingSection from "./components/pricingSection";
 import Footer from "./components/footerSection";
 
@@ -31,7 +31,7 @@ function App() {
     const aboutUsSectionColor = secondaryColor;
     const teamSectionColor = primaryColor;
     const gallerySectionColor = secondaryColor;
-    const contactSectionColor = primaryColor;
+    const servicesSectionColor = primaryColor;
 
     // const servicesRef = useRef(null);
     const pricingRef = useRef(null);
@@ -61,7 +61,12 @@ function App() {
             <header>
                 <Navbar bg="dark" variant="dark" fixed="top">
                     <Container>
-                        <Navbar.Brand href="/">Butters Lawn Care</Navbar.Brand>
+                        <Navbar.Brand
+                            onClick={() => handleNavClick(contactRef)}
+                            style={{ cursor: "pointer" }}
+                        >
+                            Butters Lawn Care
+                        </Navbar.Brand>
                         <Nav className="me-auto">
                             <NavLink
                                 onClick={() => handleNavClick(pricingRef)}
@@ -105,7 +110,7 @@ function App() {
                 <GallerySection backgroundColor={gallerySectionColor} />
             </section>
             <section ref={contactRef}>
-                <ContactSection backgroundColor={contactSectionColor} />
+                <ServiceSection backgroundColor={servicesSectionColor} />
             </section>
 
             <Footer />
