@@ -1,11 +1,52 @@
-import { useState } from "react";
-
+import React, { useState } from "react";
 import { Container, Row, Col, Form, Button, Alert } from "react-bootstrap";
+
+// Form data for first and second rows
+const data = {
+    firstRow: [
+        {
+            type: "text",
+            label: "Name",
+            controlId: "validationCustom01",
+            placeholder: "Enter your name",
+            feedbackLabel: "Please provide your name.",
+        },
+        {
+            type: "email",
+            label: "Email",
+            controlId: "validationCustom02",
+            placeholder: "Enter your email",
+            feedbackLabel: "Please provide a valid email address.",
+        },
+    ],
+    secondRow: [
+        {
+            type: "select",
+            label: "Service Type",
+            controlId: "validationCustom03",
+            placeholder: "Select Service Type",
+            feedbackLabel: "Please select a service type.",
+            options: [
+                { value: "", label: "Select Service Type" },
+                { value: "Lawn Mowing", label: "Lawn Mowing" },
+                // Add more service options as needed
+            ],
+        },
+        {
+            type: "text",
+            label: "Local Address",
+            controlId: "validationCustom04",
+            placeholder: "Enter your local address",
+            feedbackLabel: "Please provide your local address.",
+        },
+    ],
+};
 
 function ServiceSection({ backgroundColor }) {
     const [validated, setValidated] = useState(false);
     const [submissionResult, setSubmissionResult] = useState(null);
 
+    // Function to handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
         const form = e.currentTarget;
@@ -34,14 +75,27 @@ function ServiceSection({ backgroundColor }) {
         }
     };
 
-    const FormGroup = ({ label, placeholder, errorLabel }) => {
+    // Helper function to render invalid feedback
+    const renderInvalid = (label) => (
+        <Form.Control.Feedback type="invalid">{label}</Form.Control.Feedback>
+    );
+
+    // Helper function to render form group elements
+    const renderFormGroup = (el) => {
         return (
-            <Form.Group as={Col} md="6" controlId="validationCustom01">
-                <Form.Label>{label}</Form.Label>
-                <Form.Control required type="text" placeholder={placeholder} />
-                <Form.Control.Feedback type="invalid">
-                    {errorLabel}
-                </Form.Control.Feedback>
+            <Form.Group
+                key={el.controlId}
+                as={Col}
+                md="6"
+                controlId={el.controlId}
+            >
+                <Form.Label>{el.label}</Form.Label>
+                <Form.Control
+                    required
+                    type={el.type}
+                    placeholder={el.placeholder}
+                />
+                {renderInvalid(el.feedbackLabel)}
             </Form.Group>
         );
     };
@@ -52,16 +106,19 @@ function ServiceSection({ backgroundColor }) {
             className="bg-light"
             style={{ padding: "3rem", backgroundColor }}
         >
+            {/* Alert for successful form submission */}
             {submissionResult === "success" && (
                 <Alert
                     variant="success"
                     onClose={() => setSubmissionResult(null)}
                     dismissible
                 >
-                    Form submitted successfully!
+                    Service requested successfully! Our team will get in touch
+                    with you shortly!
                 </Alert>
             )}
 
+            {/* Alert for form submission failure */}
             {submissionResult === "error" && (
                 <Alert
                     variant="danger"
@@ -71,79 +128,50 @@ function ServiceSection({ backgroundColor }) {
                     Form submission failed. Please try again later.
                 </Alert>
             )}
+
             <Container>
                 <h2 className="text-center mb-5">Schedule a Service</h2>
+                {/* Form with form validation */}
                 <Form noValidate validated={validated} onSubmit={handleSubmit}>
+                    {/* First Row Data */}
                     <Row className="mb-3">
-                        <Form.Group
-                            as={Col}
-                            md="6"
-                            controlId="validationCustom01"
-                        >
-                            <Form.Label>Name</Form.Label>
-                            <Form.Control
-                                required
-                                type="text"
-                                placeholder="Enter your name"
-                            />
-                            <Form.Control.Feedback type="invalid">
-                                Please provide your name.
-                            </Form.Control.Feedback>
-                        </Form.Group>
-                        <Form.Group
-                            as={Col}
-                            md="6"
-                            controlId="validationCustom02"
-                        >
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control
-                                required
-                                type="email"
-                                placeholder="Enter your email"
-                            />
-                            <Form.Control.Feedback type="invalid">
-                                Please provide a valid email address.
-                            </Form.Control.Feedback>
-                        </Form.Group>
+                        {data.firstRow.map((el) => renderFormGroup(el))}
                     </Row>
+
+                    {/* Second Row Data*/}
                     <Row className="mb-3">
-                        <Form.Group
-                            as={Col}
-                            md="6"
-                            controlId="validationCustom03"
-                        >
-                            <Form.Label>Service Type</Form.Label>
-                            <Form.Control as="select" required>
-                                <option value="">Select Service Type</option>
-                                <option value="Lawn Mowing">Lawn Mowing</option>
-                                {/* <option value="Weed Control">
-                                    Weed Control
-                                </option>
-                                <option value="Fertilization">
-                                    Fertilization
-                                </option> */}
-                                {/* Add more service options as needed */}
-                            </Form.Control>
-                            <Form.Control.Feedback type="invalid">
-                                Please select a service type.
-                            </Form.Control.Feedback>
-                        </Form.Group>
-                        <Form.Group
-                            as={Col}
-                            md="6"
-                            controlId="validationCustom04"
-                        >
-                            <Form.Label>Local Address</Form.Label>
-                            <Form.Control
-                                required
-                                type="text"
-                                placeholder="Enter your local address"
-                            />
-                            <Form.Control.Feedback type="invalid">
-                                Please provide your local address.
-                            </Form.Control.Feedback>
-                        </Form.Group>
+                        {data.secondRow.map((el) => (
+                            <React.Fragment key={el.controlId}>
+                                {el.type === "select" ? (
+                                    // Render form group for select type
+                                    <Form.Group
+                                        key={el.controlId}
+                                        as={Col}
+                                        md="6"
+                                        controlId={el.controlId}
+                                    >
+                                        <Form.Label>{el.label}</Form.Label>
+                                        <Form.Control as="select" required>
+                                            {el.options.map((option) => (
+                                                <option
+                                                    key={option.value}
+                                                    value={option.value}
+                                                >
+                                                    {option.label}
+                                                </option>
+                                            ))}
+                                        </Form.Control>
+                                        {renderInvalid(el.feedbackLabel)}
+                                    </Form.Group>
+                                ) : (
+                                    // Render form group for other types
+                                    renderFormGroup(el)
+                                )}
+                            </React.Fragment>
+                        ))}
                     </Row>
+
+                    {/* Additional Notes */}
                     <Form.Group className="mb-3">
                         <Form.Label>Additional Notes</Form.Label>
                         <Form.Control
@@ -153,7 +181,7 @@ function ServiceSection({ backgroundColor }) {
                             placeholder="Knock before entering property..."
                         />
                     </Form.Group>
-                    <Button type="submit">Submit form</Button>
+                    <Button type="submit">Schedule Service</Button>
                 </Form>
             </Container>
         </section>

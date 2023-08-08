@@ -4,7 +4,7 @@ import { Container, Row, Col, Card } from "react-bootstrap";
 const teamMembers = [
     {
         name: "Butters",
-        role: "Founder",
+        role: "Owner and Founder",
         // expertise: "Business Development",
         bio: "woof woof",
         photo: require("../imgs/owner.jpeg"),

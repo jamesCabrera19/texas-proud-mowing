@@ -7,7 +7,7 @@ const ServicesCard = ({ data, onClick }) => {
         <Row xs={1} md={2} lg={3} className="g-4">
             {data.map((service) => (
                 <Col key={service.title}>
-                    <Card>
+                    <Card style={{ minHeight: 450 }}>
                         <Card.Img variant="top" src={service.image} />
                         <Card.Body>
                             <Card.Title>{service.title}</Card.Title>
@@ -15,13 +15,16 @@ const ServicesCard = ({ data, onClick }) => {
                             <Card.Title className="text-center my-4">
                                 {service.price}
                             </Card.Title>
-                            <Button
-                                className="center"
-                                variant="primary"
-                                onClick={() => onClick(service)}
-                            >
-                                Learn More
-                            </Button>
+                            <div className="d-flex justify-content-center">
+                                <Button
+                                    style={{ alignSelf: "center" }}
+                                    className="center"
+                                    variant="primary"
+                                    onClick={() => onClick(service)}
+                                >
+                                    Learn More
+                                </Button>
+                            </div>
                         </Card.Body>
                     </Card>
                 </Col>

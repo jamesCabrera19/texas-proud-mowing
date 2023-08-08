@@ -1,21 +1,17 @@
 import Image from "react-bootstrap/Image";
 import { Container, Button } from "react-bootstrap";
 import React from "react";
+import { heroData } from "../companyData";
 
-const imageSrc = require("../imgs/lawn3.jpg");
-// const Img = (
-//     <Image
-//         src={require("../imgs/lawn.jpg")}
-//         fluid
-//         className="position-absolute top-1 start-0"
-//     />
-// );
+const src = require("../imgs/lawn3.jpg");
 
 export default function HeroSection({ onClick }) {
+    const { data } = heroData;
+
     return (
         <div>
             <div className="position-relative" fluid="true">
-                <Image src={imageSrc} fluid="true" />
+                <Image src={src} fluid="true" />
                 <Container
                     className="text-center text-white display-4"
                     style={{
@@ -26,16 +22,9 @@ export default function HeroSection({ onClick }) {
                         borderRadius: 10,
                     }}
                 >
-                    <h1 className="display-4 mb-4">
-                        Welcome to Butters Lawn Care
-                    </h1>
-                    <h2 className="display-4 mb-4">
-                        Quality Service for Your Lawn
-                    </h2>
-                    <p className="lead mb-6">
-                        We provide affordable top-quality lawn care solutions
-                        for a greener and healthier lawn.
-                    </p>
+                    <h1 className="display-4 mb-4">{data.mainTitle}</h1>
+                    <h2 className="display-4 mb-4">{data.slogan}</h2>
+                    <p className="lead mb-6">{data.subSlogan}</p>
                     <Button
                         variant="light"
                         className="btn-purple"

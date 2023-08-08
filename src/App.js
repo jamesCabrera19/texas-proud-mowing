@@ -4,10 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import Button from "react-bootstrap/Button";
 
-import Tab from "react-bootstrap/Tab";
-import Tabs from "react-bootstrap/Tabs";
 // Components
 import HeroSection from "./components/heroSection";
 import AboutUsSection from "./components/aboutUsSection";
@@ -21,8 +18,8 @@ function App() {
     // Color theme
     const primaryColor = "#eeeeee";
     const secondaryColor = "#e5e5e5";
-    const accentColor = "#d0d0d0";
-    const buttonColor = "#c0c0c0";
+    // const accentColor = "#d0d0d0";
+    // const buttonColor = "#c0c0c0";
 
     // Section colors
     const heroSectionColor = null;

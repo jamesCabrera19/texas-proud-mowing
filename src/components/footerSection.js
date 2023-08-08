@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { footerSectionData as data } from "../companyData";
 
 const Footer = () => {
     return (
@@ -21,7 +22,7 @@ const Footer = () => {
                             &copy; {new Date().getFullYear()} Texas Proud Mowing
                             Company. All rights reserved.
                         </p>
-                        <p>James Cabrera</p>
+                        <p>{data.OWNER}</p>
                     </Col>
                 </Row>
             </Container>

@@ -11,7 +11,8 @@ const GallerySection = ({ backgroundColor }) => {
                         <img
                             className="d-block w-100"
                             src={require("../imgs/lawn.jpg")}
-                            alt="Before Image"
+                            alt="Before"
+                            style={{ borderRadius: 10 }}
                         />
                         <Carousel.Caption>
                             <h3>Before</h3>
@@ -21,7 +22,8 @@ const GallerySection = ({ backgroundColor }) => {
                         <img
                             className="d-block w-100"
                             src={require("../imgs/lawn.jpg")}
-                            alt="After Image"
+                            alt="After"
+                            style={{ borderRadius: 10 }}
                         />
                         <Carousel.Caption>
                             <h3>After</h3>
