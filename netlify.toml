@@ -1,3 +1,0 @@
-[build]
-  base = "texas_proud_mowing/texas-proud-mowing"
-  publish = "texas_proud_mowing/texas-proud-mowing/build"
