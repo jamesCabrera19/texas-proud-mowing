@@ -7,19 +7,9 @@ const Footer = () => {
         <footer className="bg-dark text-light py-4">
             <Container>
                 <Row>
-                    <Col md={6} className="text-center text-md-start">
-                        <ul className="list-unstyled">
-                            <li>
-                                <a href="/privacy-policy">Privacy Policy</a>
-                            </li>
-                            <li>
-                                <a href="/terms-of-service">Terms of Service</a>
-                            </li>
-                        </ul>
-                    </Col>
-                    <Col md={6} className="text-center text-md-end">
+                    <Col md={12} className="text-center">
                         <p>
-                            &copy; {new Date().getFullYear()} Texas Proud Mowing
+                            &copy; {new Date().getFullYear()} {data.companyName}{" "}
                             Company. All rights reserved.
                         </p>
                         <p>{data.OWNER}</p>

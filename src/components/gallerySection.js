@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Carousel } from "react-bootstrap";
+import { galleryImgs } from "../companyData";
 
 const GallerySection = ({ backgroundColor }) => {
     return (
@@ -10,7 +11,7 @@ const GallerySection = ({ backgroundColor }) => {
                     <Carousel.Item>
                         <img
                             className="d-block w-100"
-                            src={require("../imgs/lawn.jpg")}
+                            src={galleryImgs.before}
                             alt="Before"
                             style={{ borderRadius: 10 }}
                         />
@@ -21,7 +22,7 @@ const GallerySection = ({ backgroundColor }) => {
                     <Carousel.Item>
                         <img
                             className="d-block w-100"
-                            src={require("../imgs/lawn.jpg")}
+                            src={galleryImgs.after}
                             alt="After"
                             style={{ borderRadius: 10 }}
                         />
