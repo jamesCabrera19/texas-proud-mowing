@@ -1,6 +1,5 @@
 import Image from "react-bootstrap/Image";
 import { Container, Button } from "react-bootstrap";
-import Row from "react-bootstrap/Row";
 import React from "react";
 import { heroData } from "../companyData";
 import "../mediaQueries.css";
