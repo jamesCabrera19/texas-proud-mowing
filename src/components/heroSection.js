@@ -1,7 +1,9 @@
 import Image from "react-bootstrap/Image";
 import { Container, Button } from "react-bootstrap";
+import Row from "react-bootstrap/Row";
 import React from "react";
 import { heroData } from "../companyData";
+import "../mediaQueries.css";
 
 const src = require("../imgs/lawn3.jpg");
 
@@ -9,31 +11,34 @@ export default function HeroSection({ onClick }) {
     const { data } = heroData;
 
     return (
-        <div>
-            <div className="position-relative" fluid="true">
-                <Image src={src} fluid="true" />
-                <Container
-                    className="text-center text-white display-4"
-                    style={{
-                        position: "absolute",
-                        bottom: "2rem",
-                        margin: "0 2rem",
-                        backgroundColor: "rgba(89, 89, 89, 0.4)",
-                        borderRadius: 10,
-                    }}
+        <div
+            style={{ position: "relative", backgroundColor: "#FFFFFF" }}
+            className="large-screen"
+        >
+            <Image src={src} fluid="true" className="background-image" />
+            <Container
+                className="overlay text-center text-white d-flex flex-column align-items-center justify-content-center"
+                style={{
+                    position: "absolute",
+                    bottom: 0,
+                    borderRadius: 10,
+                    padding: "1rem",
+                    maxWidth: "80%",
+                    maxHeight: "90%",
+                }}
+            >
+                <h1 className="text display-5 mb-3">{data.mainTitle}</h1>
+                <h2 className="h4 mb-3">{data.slogan}</h2>
+                <p className="lead mb-4">{data.subSlogan}</p>
+                <Button
+                    // variant="light"
+                    className="btn-purple"
+                    onClick={onClick}
+                    size="lg"
                 >
-                    <h1 className="display-4 mb-4">{data.mainTitle}</h1>
-                    <h2 className="display-4 mb-4">{data.slogan}</h2>
-                    <p className="lead mb-6">{data.subSlogan}</p>
-                    <Button
-                        variant="light"
-                        className="btn-purple"
-                        onClick={onClick}
-                    >
-                        Get Started
-                    </Button>
-                </Container>
-            </div>
+                    Get Started
+                </Button>
+            </Container>
         </div>
     );
 }

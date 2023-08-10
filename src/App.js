@@ -56,7 +56,7 @@ function App() {
     return (
         <div style={{ backgroundColor: primaryColor }}>
             <header>
-                <Navbar bg="dark" variant="dark" fixed="top">
+                <Navbar bg="dark" variant="dark" expand="md" fixed="top">
                     <Container>
                         <Navbar.Brand
                             onClick={() => handleNavClick(contactRef)}
@@ -64,25 +64,30 @@ function App() {
                         >
                             Butters Lawn Care
                         </Navbar.Brand>
-                        <Nav className="me-auto">
-                            <NavLink
-                                onClick={() => handleNavClick(pricingRef)}
-                                title="Services"
-                            />
-                            <NavLink
-                                onClick={() => handleNavClick(aboutUsRef)}
-                                title="About Us"
-                            />
-
-                            <NavLink
-                                onClick={() => handleNavClick(galleryRef)}
-                                title="Gallery"
-                            />
-                            <NavLink
-                                onClick={() => handleNavClick(contactRef)}
-                                title="Schedule Service"
-                            />
-                        </Nav>
+                        <Navbar.Toggle aria-controls="navbar-nav" />
+                        <Navbar.Collapse
+                            id="navbar-nav"
+                            className="justify-content-end"
+                        >
+                            <Nav className="ml-auto">
+                                <NavLink
+                                    onClick={() => handleNavClick(pricingRef)}
+                                    title="Services"
+                                />
+                                <NavLink
+                                    onClick={() => handleNavClick(aboutUsRef)}
+                                    title="About Us"
+                                />
+                                <NavLink
+                                    onClick={() => handleNavClick(galleryRef)}
+                                    title="Gallery"
+                                />
+                                <NavLink
+                                    onClick={() => handleNavClick(contactRef)}
+                                    title="Schedule Service"
+                                />
+                            </Nav>
+                        </Navbar.Collapse>
                     </Container>
                 </Navbar>
             </header>

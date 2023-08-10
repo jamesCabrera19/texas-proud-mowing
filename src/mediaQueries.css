@@ -1,0 +1,58 @@
+@media (max-width: 576px) and (orientation: portrait) {
+    .container-for-mobile {
+    }
+    .overlay {
+        position: "absolute";
+        top: 0;
+        left: 0;
+        right: 0;
+        min-width: 100%;
+        background-color: rgba(89, 89, 89, 0.4);
+
+        /* min-height: 165%; */
+    }
+    .text {
+        margin-top: 130px;
+    }
+    .background-image {
+        margin-top: 3rem;
+    }
+}
+@media (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+    .container-for-mobile {
+        /* Your styles for the container here */
+    }
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        min-width: 100%;
+        background-color: rgba(89, 89, 89, 0.4);
+        /* min-height: 165%; */
+        /* Your other styles for the overlay here */
+    }
+    .text {
+        margin-top: 130px; /* Adjust this value as needed */
+        /* Your other styles for the text here */
+    }
+    .background-image {
+        margin-top: 3rem; /* Adjust this value as needed */
+        /* Your other styles for the background image here */
+    }
+}
+
+@media (min-width: 576px) and (orientation: landscape) {
+    /* Your styles for larger screens here */
+    .large-screen {
+        overflow: hidden;
+    }
+    .overlay {
+        /* position: "absolute";
+        top: 0;
+        left: 0;
+        right: 0; */
+        margin: 10%;
+        background-color: rgba(89, 89, 89, 0.4);
+    }
+}
