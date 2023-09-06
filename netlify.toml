@@ -1,4 +1,0 @@
-[build]
-  base = "texas_proud_mowing/texas-proud-mowing"  # Relative path to the root of your project
-  publish = "texas_proud_mowing/texas-proud-mowing/build"  # Path to your build output directory
-  command = "npm run build"  # The command to build your project
